@@ -12,22 +12,20 @@
         };
 
 
-        var user = {
-            name: "John",
-            __proto__: worker
-        };
-
-
-        console.log(user.hasOwnProperty("name"));
-        console.log(user.hasOwnProperty("salary"));
-
-        for (var key in user) {
-          if (user.hasOwnProperty(key)){
-            console.log("own property " + key + ":" + user[key])
-          }
+        function User(name) {
+          this.name = name;
         }
 
-        console.log(user.salary);
+        User.prototype = worker;
+
+        var user1 = new User ("John");
+        console.log(user1.name);
+        console.log(user1.salary);
+        
+        var user2 = new User ("Philip");
+        console.log(user2.name);
+        console.log(user2.salary);
+
 
 
     </script>
